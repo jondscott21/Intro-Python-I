@@ -53,4 +53,3 @@ print(waypoints)
 for d in waypoints:
         for k, v in d.items():
             print(v)
-# for d
