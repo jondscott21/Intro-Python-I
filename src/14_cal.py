@@ -22,3 +22,27 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+def print_calender(*args):
+  year = str(datetime.today())[0:4]
+  month = str(datetime.today())[5:7]
+  print(year)
+  print(month)
+  if len(args) == 0:
+    try:
+      print(calendar.TextCalendar().formatmonth(int(year), int(month)))
+    except:
+      print('could not find current month and year')
+  elif len(args) == 1:
+    try:
+      print(calendar.TextCalendar().formatmonth(int(year), int(args[0])))
+    except:
+      print('please enter a valid month')
+  elif len(args) == 2:
+    try:
+      print(calendar.TextCalendar().formatmonth(int(args[1]), int(args[0])))
+    except:
+      print('please enter a valid month followed by a valid 4 digit year')
+  else:
+    print('expects 0-2 args: month, then year')
+print_calender(20, 1)
