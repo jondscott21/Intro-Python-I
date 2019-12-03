@@ -23,24 +23,27 @@ import sys
 import calendar
 from datetime import datetime
 
-def print_calender(*args):
+def print_calender(args):
+  date_list = args.split(',')
+  print(date_list)
   year = str(datetime.today())[0:4]
   month = str(datetime.today())[5:7]
-  if len(args) == 0:
+  if date_list[0] == '':
     try:
       print(calendar.TextCalendar().formatmonth(int(year), int(month)))
     except:
       print('could not find current month and year')
-  elif len(args) == 1:
+  elif len(date_list) == 1:
     try:
-      print(calendar.TextCalendar().formatmonth(int(year), int(args[0])))
+      print(calendar.TextCalendar().formatmonth(int(year), int(date_list[0])))
     except:
       print('please enter a valid month')
-  elif len(args) == 2:
+  elif date_list[0] and date_list[1]:
     try:
-      print(calendar.TextCalendar().formatmonth(int(args[1]), int(args[0])))
+      print(calendar.TextCalendar().formatmonth(int(date_list[1]), int(date_list[0])))
     except:
       print('please enter a valid month followed by a valid 4 digit year')
   else:
     print('expects 0-2 args: month, then year')
-print_calender()
+user_input = input('input a month and year separated by a comma: ')
+print_calender(user_input)
