@@ -26,8 +26,6 @@ from datetime import datetime
 def print_calender(*args):
   year = str(datetime.today())[0:4]
   month = str(datetime.today())[5:7]
-  print(year)
-  print(month)
   if len(args) == 0:
     try:
       print(calendar.TextCalendar().formatmonth(int(year), int(month)))
@@ -45,4 +43,4 @@ def print_calender(*args):
       print('please enter a valid month followed by a valid 4 digit year')
   else:
     print('expects 0-2 args: month, then year')
-print_calender(20, 1)
+print_calender()
